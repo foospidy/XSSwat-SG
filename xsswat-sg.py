@@ -201,27 +201,7 @@ for entry in feed['entries']:
 			mysqlcur.execute("UPDATE signatures SET confirmed=%s, modified=NOW() WHERE hash_signature=%s;", params)
 			mysqldb.commit()
 			logging.debug('Update: Confirmed: ' + str(confirmed) + ' Hash Signature: ' + hash_signature)
-		
-		"""
-		# does record exist?
-		params = [hash_signature]
-		mysqlcur.execute("SELECT hash_signature FROM signatures WHERE hash_signature=%s LIMIT 1;", params)
-		rows = mysqlcur.fetchall()
-		
-		# Yes so update
-		if 1 == len(rows):
-			params = [confirmed, hash_signature]
-			mysqlcur.execute("UPDATE signatures SET confirmed=%s, modified=NOW() WHERE hash_signature=%s;", params)
-			mysqldb.commit()
-			logging.debug('Update: Confirmed: ' + str(confirmed) + ' Hash Signature: ' + hash_signature)
-		
-		# No so insert
-		else:
-			params = [entry['published'], entry['title'], entry['link'], url, request_signature, hash_signature, confirmed]
-			mysqlcur.execute("INSERT IGNORE INTO signatures (published, title, link, url, request_signature, hash_signature, confirmed, created, modified) VALUES (%s, %s, %s, %s, %s, %s, %s, NOW(), NOW());", params)
-			mysqldb.commit()
-			logging.debug('Insert: Confirmed: ' + str(confirmed) + ' Hash Signature: ' + hash_signature)
-		"""
+
 	else:
 		if likely_post_request:
 			logging.debug('POST REQUEST: ' + url)
