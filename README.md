@@ -1,7 +1,7 @@
 # XSSwat-SG
 XSSwat Signature Generator
 
-Generates the signatures that will be checked against by the XSSwat Chrome extension (https://github.com/foospidy/XSSwat).
+Generates the signatures that will be checked by the XSSwat Chrome extension (https://github.com/foospidy/XSSwat). Signatures are already generated and published at riskdiscovery.com (example: https://riskdiscovery.com/xsswat/9ab9c934e2329708df92a86781ba47b9). If you want to host your own signatures you will also need to modify the Chrome extension to point to your domain.
 
 ## Dependencies
 MySQL
