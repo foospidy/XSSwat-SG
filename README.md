@@ -19,6 +19,8 @@ Selenium (https://pypi.python.org/pypi/selenium)
 
 Browser
 - Either iceweasel or firefox
+  -  apt-get install iceweasel
+  -  for installing firefox see: http://superuser.com/questions/322376/how-to-install-the-real-firefox-on-debian
 
 ## Setup
 1. create a database: ```mysql -u <db user> -p -e "create database <database name>;"```
