@@ -1,4 +1,7 @@
 #!/usr/bin/python
+# XSSwat-SG Copyright (C) 2015 foospidy
+# https://github.com/foospidy/XSSwat-SG
+# XSSwat-SG is licensed under GPL v2.0, see LICENSE for details
 
 ### configuration ################
 FEED_LIMIT      = 100  # reddit's max is 100
