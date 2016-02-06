@@ -10,6 +10,9 @@ MySQL
 Demjson
 - apt-get install python-demjson
 
+Feedparser
+- pip install feedparser
+
 PyVirtualDisplay (https://pypi.python.org/pypi/PyVirtualDisplay)
 - apt-get install xvfb
 - pip install pyvirtualdisplay
