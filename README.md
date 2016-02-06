@@ -20,6 +20,9 @@ PyVirtualDisplay (https://pypi.python.org/pypi/PyVirtualDisplay)
 Selenium (https://pypi.python.org/pypi/selenium)
 - pip install -U selenium
 
+BeautifulSoup
+- pip install BeautifulSoup
+
 Browser
 - Either iceweasel or firefox
   -  apt-get install iceweasel
