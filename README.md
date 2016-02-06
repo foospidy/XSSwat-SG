@@ -21,7 +21,7 @@ Selenium (https://pypi.python.org/pypi/selenium)
 - pip install -U selenium
 
 BeautifulSoup
-- pip install BeautifulSoup
+- pip install BeautifulSoup4
 
 Browser
 - Either iceweasel or firefox
