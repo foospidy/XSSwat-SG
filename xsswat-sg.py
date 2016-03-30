@@ -13,6 +13,7 @@ DB_USER         = ''
 DB_PASS         = ''  
 ##################################
 
+import os
 import MySQLdb
 import demjson
 import feedparser
@@ -33,6 +34,10 @@ from warnings import filterwarnings
 mysqldb      = MySQLdb.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASS, db=DB_NAME, charset='utf8')
 mysqlcur     = mysqldb.cursor()
 feed_url     = 'http://www.reddit.com/r/xss/.rss?limit=' + str(FEED_LIMIT)
+
+if None != os.environ.get('REDDIT_XSS_URL'):
+    feed_url = os.environ.get('REDDIT_XSS_URL')
+
 feed         = feedparser.parse(feed_url)
 url          = ''
 xephyr       = Display(visible=0, size=(320, 240)).start()
