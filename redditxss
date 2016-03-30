@@ -1,0 +1,35 @@
+#!/bin/bash
+# Start from n days ago and search the xss subreddit for results.
+# For each result run xsswat-sg.py.
+# Continue loop from n days ago to the current day.
+
+if [ -z $1 ]
+then
+        echo You must specify a number n, for n days ago.
+        exit
+fi
+
+XSSWAT_SG=./xsswat-sg.py
+BROWSER=iceweasel
+
+for ((i=$1; i>0; i--));
+do
+        from=`date --date="${i} days ago" +%s`
+        to=`date --date="$(($i - 1)) days ago" +%s`
+
+        url="https://www.reddit.com/search.rss?syntax=cloudsearch&q=(and+subreddit%3A%27xss%27+timestamp%3A${from}..${to})"
+
+        export REDDIT_XSS_URL=${url}
+
+        # Selenium clean up
+        killall -9 ${BROWSER} &> /dev/null
+        killall -9 Xvfb &> /dev/null
+        rm -rf /tmp/tmp*
+
+        echo Calling ${REDDIT_XSS_URL}
+
+        python ${XSSWAT_SG}
+done;
+
+# to view payload results run
+# mysql -u root -D <xsswat db name> -B -e "select url from signatures where url like '%?%';" | awk -F ? '{ print $2 }'
